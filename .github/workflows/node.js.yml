@@ -12,7 +12,7 @@ on:
 jobs:
   build:
 
-    runs-on: Manjaro Cinnamon 4.8.3 Linux Kernel 5.4.85-1
+    runs-on: Ubuntu
 
     strategy:
       matrix:
