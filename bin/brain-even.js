@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import readlineSync from 'readline-sync';
-import getRandomInt from '../src/getRandomInt.js';
+import { getRandomInt } from '../src/random.js';
 
 console.log('Welcome to the Brain Games!');
 const name = readlineSync.question('May I have your name? ');
