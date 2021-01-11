@@ -9,7 +9,7 @@ console.log(`Hello, ${name}!`);
 console.log('What is the result of the expression?');
 
 let correctAnswersCount = 0;
-let calculatedResult;
+let result;
 
 const calc = () => {
   const randomInt1 = getRandomInt();
@@ -17,18 +17,19 @@ const calc = () => {
   const randomOp = getRandomOp();
   console.log(`Question: ${randomInt1} ${randomOp} ${randomInt2}`);
   const answer = readlineSync.question('Your answer: ');
-  calculatedResult = calculate(randomInt1, randomInt2, randomOp);
+  result = calculate(randomInt1, randomInt2, randomOp);
 
-  if (calculatedResult === Number(answer)) {
+  if (result === Number(answer)) {
     console.log('Correct!');
     correctAnswersCount += 1;
     if (correctAnswersCount < 3) {
       return calc();
     }
   }
-  if (calculatedResult !== Number(answer)) {
-    return console.log(`'${answer}' is wrong answer :(. Correct answer was '${calculatedResult}'.\nLet's try again, ${name}!`);
+  if (result !== Number(answer)) {
+    return console.log(`'${answer}' is wrong answer :(. Correct answer was '${result}'.\nLet's try again, ${name}!`);
   }
+
   return console.log(`Congratulations, ${name}!`);
 };
 

@@ -8,14 +8,15 @@ console.log(`Hello, ${name}!`);
 console.log('Answer "yes" if the number is even, otherwise answer "no".');
 
 let correctAnswersCount = 0;
+let result;
 
 const isEven = () => {
   const randomInt = getRandomInt();
   const evenInt = randomInt % 2 === 0;
   console.log(`Question: ${randomInt}`);
   const answer = readlineSync.question('Your answer: ');
-  const correctAnswer = (evenInt && answer.toLowerCase() === 'yes')
-  || (!evenInt && answer.toLowerCase() === 'no');
+  const correctAnswer = (evenInt && answer.toLowerCase() === 'yes') || (!evenInt && answer.toLowerCase() === 'no');
+  result = evenInt ? 'yes' : 'no';
 
   if (correctAnswer) {
     console.log('Correct!');
@@ -24,13 +25,8 @@ const isEven = () => {
       return isEven();
     }
   }
-
-  if (!correctAnswer && evenInt) {
-    return console.log(`'${answer}' is wrong answer :(. Correct answer was 'yes'.\nLet's try again, ${name}!`);
-  }
-
-  if (!correctAnswer && !evenInt) {
-    return console.log(`'${answer}' is wrong answer :(. Correct answer was 'no'.\nLet's try again, ${name}!`);
+  if (!correctAnswer) {
+    return console.log(`'${answer}' is wrong answer :(. Correct answer was '${result}'.\nLet's try again, ${name}!`);
   }
 
   return console.log(`Congratulations, ${name}!`);
