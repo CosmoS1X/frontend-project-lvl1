@@ -1,36 +1,21 @@
 #!/usr/bin/env node
 import readlineSync from 'readline-sync';
-import calculate from '../src/index.js';
-import { getRandomInt, getRandomOp } from '../src/random.js';
+import { greeting, checkAnswer } from '../src/index.js';
+import { getRandomInt, getRandomOp, calculate } from '../src/calculations.js';
 
-console.log('Welcome to the Brain Games!');
-const name = readlineSync.question('May I have your name? ');
-console.log(`Hello, ${name}!`);
+greeting();
+
 console.log('What is the result of the expression?');
-
-let correctAnswer;
-let correctAnswersCount = 0;
 
 const calc = () => {
   const randomInt1 = getRandomInt();
   const randomInt2 = getRandomInt();
   const randomOp = getRandomOp();
   console.log(`Question: ${randomInt1} ${randomOp} ${randomInt2}`);
-  const answer = readlineSync.question('Your answer: ');
-  correctAnswer = calculate(randomInt1, randomInt2, randomOp);
+  const userAnswer = Number(readlineSync.question('Your answer: '));
+  const correctAnswer = calculate(randomInt1, randomInt2, randomOp);
 
-  if (correctAnswer === Number(answer)) {
-    console.log('Correct!');
-    correctAnswersCount += 1;
-    if (correctAnswersCount < 3) {
-      return calc();
-    }
-  }
-  if (correctAnswer !== Number(answer)) {
-    return console.log(`'${answer}' is wrong answer :(. Correct answer was '${correctAnswer}'.\nLet's try again, ${name}!`);
-  }
-
-  return console.log(`Congratulations, ${name}!`);
+  return { userAnswer, correctAnswer };
 };
 
-calc();
+checkAnswer(calc);
