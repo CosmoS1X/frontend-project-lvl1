@@ -4,6 +4,8 @@
 ![Node.js CI](https://github.com/CosmoS1X/frontend-project-lvl1/workflows/Node.js%20CI/badge.svg)
 
 ### **"brain-even" game:**
-[![asciicast](https://asciinema.org/a/E20QxWMK4yGIV3JdCESbS4HR4.svg)](https://asciinema.org/a/E20QxWMK4yGIV3JdCESbS4HR4)
+[![asciicast](https://asciinema.org/a/N4mmb8TGS7FCTsxAwfaeKnZ3c.svg)](https://asciinema.org/a/N4mmb8TGS7FCTsxAwfaeKnZ3c)
 ### **"brain-calc" game:**
-[![asciicast](https://asciinema.org/a/d4pqquLmYn1OSV0NYBO7JDMAB.svg)](https://asciinema.org/a/d4pqquLmYn1OSV0NYBO7JDMAB)
+[![asciicast](https://asciinema.org/a/xFJDGr63GXL6vmhoU95drk92Q.svg)](https://asciinema.org/a/xFJDGr63GXL6vmhoU95drk92Q)
+### **"brain-gcd" game:**
+[![asciicast](https://asciinema.org/a/Nvt6hxO5EtJjQ5129S6SNX8Q0.svg)](https://asciinema.org/a/Nvt6hxO5EtJjQ5129S6SNX8Q0)
