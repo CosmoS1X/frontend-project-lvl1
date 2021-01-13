@@ -1,10 +1,11 @@
-const randomInt = (from, to) => {
+const random = (from, to) => {
   const min = Math.ceil(from);
   const max = Math.floor(to);
   return Math.floor(Math.random() * (max - min)) + min;
 };
 
-export const getRandomInt = () => randomInt(1, 100);
+export const getRandomInt = () => random(1, 100);
+export const getRandomDigit = () => random(1, 10);
 
 export const getRandomOp = () => {
   const operators = ['+', '-', '*'];
@@ -32,4 +33,17 @@ export const gcd = (a, b) => {
   }
 
   return gcd(b, a % b);
+};
+
+export const getRandomProgression = () => {
+  const begin = getRandomDigit();
+  const increaseBy = getRandomDigit();
+
+  const progression = [begin];
+
+  for (let i = 1; i < 10; i += 1) {
+    progression.push(progression[progression.length - 1] + increaseBy);
+  }
+
+  return progression;
 };
