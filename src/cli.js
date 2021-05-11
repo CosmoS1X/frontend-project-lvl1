@@ -3,6 +3,11 @@ import readlineSync from 'readline-sync';
 export default (game, question) => {
   const name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}!`);
+
+  if (!game) {
+    return undefined;
+  }
+
   console.log(question);
 
   const iter = (counter) => {
