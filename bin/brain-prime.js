@@ -1,19 +1,9 @@
 #!/usr/bin/env node
-import readlineSync from 'readline-sync';
-import { greeting, checkAnswer } from '../src/index.js';
-import { getRandomInt, isPrime } from '../src/calculations.js';
+import isPrime from '../games/isPrime.js';
+import question from '../src/cli.js';
 
-greeting();
+console.log('Welcome to the Brain Games!');
 
-console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
+const questionText = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-const prime = () => {
-  const randomInt = getRandomInt();
-  console.log(`Question: ${randomInt}`);
-  const userAnswer = readlineSync.question('Your answer: ').toLowerCase();
-  const correctAnswer = isPrime(randomInt) ? 'yes' : 'no';
-
-  return { userAnswer, correctAnswer };
-};
-
-checkAnswer(prime);
+question(isPrime, questionText);

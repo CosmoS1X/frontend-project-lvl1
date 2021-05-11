@@ -1,21 +1,9 @@
 #!/usr/bin/env node
-import readlineSync from 'readline-sync';
-import { greeting, checkAnswer } from '../src/index.js';
-import { getRandomInt, getRandomOp, calculate } from '../src/calculations.js';
+import calculator from '../games/calculator.js';
+import question from '../src/cli.js';
 
-greeting();
+console.log('Welcome to the Brain Games!');
 
-console.log('What is the result of the expression?');
+const questionText = 'What is the result of the expression?';
 
-const calc = () => {
-  const randomInt1 = getRandomInt();
-  const randomInt2 = getRandomInt();
-  const randomOp = getRandomOp();
-  console.log(`Question: ${randomInt1} ${randomOp} ${randomInt2}`);
-  const userAnswer = Number(readlineSync.question('Your answer: '));
-  const correctAnswer = calculate(randomInt1, randomInt2, randomOp);
-
-  return { userAnswer, correctAnswer };
-};
-
-checkAnswer(calc);
+question(calculator, questionText);
