@@ -1,11 +1,8 @@
-const random = (from, to) => {
+export const random = (from, to) => {
   const min = Math.ceil(from);
   const max = Math.floor(to);
   return Math.floor(Math.random() * (max - min)) + min;
 };
-
-export const getRandomInt = () => random(1, 100);
-export const getRandomDigit = () => random(1, 10);
 
 export const getRandomOp = () => {
   const operators = ['+', '-', '*'];
@@ -27,17 +24,17 @@ export const calculate = (a, b, op) => {
   }
 };
 
-export const gcd = (a, b) => {
+export const findGCD = (a, b) => {
   if (b === 0) {
     return a;
   }
 
-  return gcd(b, a % b);
+  return findGCD(b, a % b);
 };
 
 export const getRandomProgression = () => {
-  const begin = getRandomDigit();
-  const increaseBy = getRandomDigit();
+  const begin = random(1, 10);
+  const increaseBy = random(1, 10);
 
   const progression = [begin];
 

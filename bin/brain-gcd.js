@@ -1,9 +1,5 @@
 #!/usr/bin/env node
-import gcd from '../games/gcd.js';
-import question from '../src/cli.js';
+import brainGCD from '../src/games/gcd.js';
+import run from '../src/index.js';
 
-console.log('Welcome to the Brain Games!');
-
-const questionText = 'Find the greatest common divisor of given numbers.';
-
-question(gcd, questionText);
+run(brainGCD);

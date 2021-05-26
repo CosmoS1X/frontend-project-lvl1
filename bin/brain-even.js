@@ -1,9 +1,5 @@
 #!/usr/bin/env node
-import isEven from '../games/isEven.js';
-import question from '../src/cli.js';
+import brainEven from '../src/games/isEven.js';
+import run from '../src/index.js';
 
-console.log('Welcome to the Brain Games!');
-
-const questionText = 'Answer "yes" if the number is even, otherwise answer "no".';
-
-question(isEven, questionText);
+run(brainEven);

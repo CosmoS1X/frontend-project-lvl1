@@ -1,7 +1,9 @@
 import readlineSync from 'readline-sync';
-import { getRandomProgression } from '../src/calculations.js';
+import { getRandomProgression } from '../calculations.js';
 
-export default () => {
+const question = 'What number is missing in the progression?';
+
+const generateAnswers = () => {
   const progression = getRandomProgression();
   const randomIndex = Math.floor(Math.random() * progression.length);
   const randomElement = progression[randomIndex];
@@ -12,3 +14,5 @@ export default () => {
 
   return { userAnswer, correctAnswer };
 };
+
+export default { question, answers: generateAnswers };
