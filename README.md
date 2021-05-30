@@ -2,11 +2,16 @@
 
 ### Hexlet tests and linter status:
 ![hexlet-check](https://github.com/CosmoS1X/frontend-project-lvl1/workflows/hexlet-check/badge.svg)
-[![Maintainability](https://api.codeclimate.com/v1/badges/7c7a2ed9fbfb4efe84c8/maintainability)](https://codeclimate.com/github/CosmoS1X/frontend-project-lvl1/maintainability)
 ![Node.js CI](https://github.com/CosmoS1X/frontend-project-lvl1/workflows/Node.js%20CI/badge.svg)
+[![Maintainability](https://api.codeclimate.com/v1/badges/7c7a2ed9fbfb4efe84c8/maintainability)](https://codeclimate.com/github/CosmoS1X/frontend-project-lvl1/maintainability)
 
 ## About
 "Brain Games" is a simple console application for testing and leveling your math skills. To win, you need to answer the question three times in a row.
+
+## Installation
+
+    git clone git@github.com:CosmoS1X/frontend-project-lvl1.git
+    make install
 
 ## Game descriptions and examples:
 
