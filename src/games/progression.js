@@ -1,18 +1,28 @@
-import readlineSync from 'readline-sync';
-import { getRandomProgression } from '../calculations.js';
+import getRandomNumber from '../getRandomNumber.js';
 
-const question = 'What number is missing in the progression?';
+const generateProgression = (begin, increaseBy) => {
+  const progression = [begin];
 
-const generateAnswers = () => {
-  const progression = getRandomProgression();
+  for (let i = 1; i < 10; i += 1) {
+    progression.push(progression[progression.length - 1] + increaseBy);
+  }
+
+  return progression;
+};
+
+const gameQuestion = 'What number is missing in the progression?';
+
+const generateGame = () => {
+  const begin = getRandomNumber(1, 10);
+  const increaseBy = getRandomNumber(1, 10);
+  const progression = generateProgression(begin, increaseBy);
   const randomIndex = Math.floor(Math.random() * progression.length);
   const randomElement = progression[randomIndex];
   progression[randomIndex] = '..';
-  console.log(`Question: ${progression.join(' ')}`);
-  const userAnswer = Number(readlineSync.question('Your answer: '));
-  const correctAnswer = randomElement;
+  const roundQuestion = `${progression.join(' ')}`;
+  const correctAnswer = String(randomElement);
 
-  return { userAnswer, correctAnswer };
+  return { roundQuestion, correctAnswer };
 };
 
-export default { question, answers: generateAnswers };
+export default { gameQuestion, generateGame };

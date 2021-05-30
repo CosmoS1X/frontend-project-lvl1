@@ -1,16 +1,14 @@
-import readlineSync from 'readline-sync';
-import { random } from '../calculations.js';
+import getRandomNumber from '../getRandomNumber.js';
 
-const question = 'Answer "yes" if the number is even, otherwise answer "no".';
+const gameQuestion = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-const generateAnswers = () => {
-  const randomInt = random(1, 100);
+const generateGame = () => {
+  const randomInt = getRandomNumber(1, 100);
   const evenInt = randomInt % 2 === 0;
-  console.log(`Question: ${randomInt}`);
-  const userAnswer = readlineSync.question('Your answer: ').toLowerCase();
+  const roundQuestion = `${randomInt}`;
   const correctAnswer = evenInt ? 'yes' : 'no';
 
-  return { userAnswer, correctAnswer };
+  return { roundQuestion, correctAnswer };
 };
 
-export default { question, answers: generateAnswers };
+export default { gameQuestion, generateGame };

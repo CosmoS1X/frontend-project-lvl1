@@ -1,17 +1,35 @@
-import readlineSync from 'readline-sync';
-import { random, getRandomOp, calculate } from '../calculations.js';
+import getRandomNumber from '../getRandomNumber.js';
 
-const question = 'What is the result of the expression?';
-
-const generateAnswers = () => {
-  const randomInt1 = random(1, 100);
-  const randomInt2 = random(1, 100);
-  const randomOp = getRandomOp();
-  console.log(`Question: ${randomInt1} ${randomOp} ${randomInt2}`);
-  const userAnswer = Number(readlineSync.question('Your answer: '));
-  const correctAnswer = calculate(randomInt1, randomInt2, randomOp);
-
-  return { userAnswer, correctAnswer };
+const calculate = (a, b, op) => {
+  switch (op) {
+    case '+':
+      return a + b;
+    case '-':
+      return a - b;
+    case '*':
+      return a * b;
+    default:
+      return NaN;
+  }
 };
 
-export default { question, answers: generateAnswers };
+const getRandomOperator = () => {
+  const operators = ['+', '-', '*'];
+  const randomElement = Math.floor(Math.random() * operators.length);
+
+  return operators[randomElement];
+};
+
+const gameQuestion = 'What is the result of the expression?';
+
+const generateGame = () => {
+  const randomInt1 = getRandomNumber(1, 100);
+  const randomInt2 = getRandomNumber(1, 100);
+  const randomOp = getRandomOperator();
+  const roundQuestion = `${randomInt1} ${randomOp} ${randomInt2}`;
+  const correctAnswer = String(calculate(randomInt1, randomInt2, randomOp));
+
+  return { roundQuestion, correctAnswer };
+};
+
+export default { gameQuestion, generateGame };

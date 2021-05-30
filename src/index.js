@@ -9,23 +9,26 @@ export default (game) => {
     return undefined;
   }
 
-  console.log(game.question);
+  console.log(game.gameQuestion);
 
-  const firstRound = 1;
-  const finalRound = 3;
+  const maxRoundNumber = 3;
 
-  const iter = (counter) => {
-    const result = game.answers();
-    if (result.userAnswer === result.correctAnswer && counter < finalRound) {
+  const iter = (roundNumber = 1) => {
+    const round = game.generateGame();
+    console.log(`Question: ${round.roundQuestion}`);
+    const userAnswer = readlineSync.question('Your answer: ').toLowerCase();
+
+    if (userAnswer === round.correctAnswer && roundNumber < maxRoundNumber) {
       console.log('Correct!');
-      return iter(counter + 1);
+      return iter(roundNumber + 1);
     }
-    if (result.userAnswer !== result.correctAnswer) {
-      return console.log(`'${result.userAnswer}' is wrong answer :(. Correct answer was '${result.correctAnswer}'.\nLet's try again, ${name}!`);
+
+    if (userAnswer !== round.correctAnswer) {
+      return console.log(`'${userAnswer}' is wrong answer :(. Correct answer was '${round.correctAnswer}'.\nLet's try again, ${name}!`);
     }
 
     return console.log(`Correct!\nCongratulations, ${name}!`);
   };
 
-  return iter(firstRound);
+  return iter();
 };
