@@ -10,13 +10,13 @@ const findGCD = (a, b) => {
 
 const gameQuestion = 'Find the greatest common divisor of given numbers.';
 
-const generateGame = () => {
-  const randomInt1 = getRandomNumber(1, 100);
-  const randomInt2 = getRandomNumber(1, 10);
-  const roundQuestion = `${randomInt1} ${randomInt2}`;
-  const correctAnswer = String(findGCD(randomInt1, randomInt2));
+const generateRound = () => {
+  const randomNumber1 = getRandomNumber(1, 100);
+  const randomNumber2 = getRandomNumber(1, 10);
+  const roundQuestion = `${randomNumber1} ${randomNumber2}`;
+  const correctAnswer = String(findGCD(randomNumber1, randomNumber2));
 
   return { roundQuestion, correctAnswer };
 };
 
-export default { gameQuestion, generateGame };
+export default { gameQuestion, generateRound };

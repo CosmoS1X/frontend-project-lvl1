@@ -16,12 +16,12 @@ const isPrime = (num) => {
 
 const gameQuestion = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-const generateGame = () => {
-  const randomInt = getRandomNumber(1, 100);
-  const roundQuestion = `${randomInt}`;
-  const correctAnswer = isPrime(randomInt) ? 'yes' : 'no';
+const generateRound = () => {
+  const randomNumber = getRandomNumber(1, 100);
+  const roundQuestion = `${randomNumber}`;
+  const correctAnswer = isPrime(randomNumber) ? 'yes' : 'no';
 
   return { roundQuestion, correctAnswer };
 };
 
-export default { gameQuestion, generateGame };
+export default { gameQuestion, generateRound };

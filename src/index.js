@@ -1,5 +1,7 @@
 import readlineSync from 'readline-sync';
 
+const maxRoundNumber = 3;
+
 export default (game) => {
   console.log('Welcome to the Brain Games!');
   const name = readlineSync.question('May I have your name? ');
@@ -11,10 +13,8 @@ export default (game) => {
 
   console.log(game.gameQuestion);
 
-  const maxRoundNumber = 3;
-
   const iter = (roundNumber = 1) => {
-    const round = game.generateGame();
+    const round = game.generateRound();
     console.log(`Question: ${round.roundQuestion}`);
     const userAnswer = readlineSync.question('Your answer: ').toLowerCase();
 

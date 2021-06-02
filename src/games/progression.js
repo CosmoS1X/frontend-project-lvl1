@@ -12,7 +12,7 @@ const generateProgression = (begin, increaseBy) => {
 
 const gameQuestion = 'What number is missing in the progression?';
 
-const generateGame = () => {
+const generateRound = () => {
   const begin = getRandomNumber(1, 10);
   const increaseBy = getRandomNumber(1, 10);
   const progression = generateProgression(begin, increaseBy);
@@ -25,4 +25,4 @@ const generateGame = () => {
   return { roundQuestion, correctAnswer };
 };
 
-export default { gameQuestion, generateGame };
+export default { gameQuestion, generateRound };

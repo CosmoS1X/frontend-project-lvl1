@@ -9,7 +9,7 @@ const calculate = (a, b, op) => {
     case '*':
       return a * b;
     default:
-      return NaN;
+      throw new Error('unexpected error in calculate function');
   }
 };
 
@@ -22,14 +22,14 @@ const getRandomOperator = () => {
 
 const gameQuestion = 'What is the result of the expression?';
 
-const generateGame = () => {
-  const randomInt1 = getRandomNumber(1, 100);
-  const randomInt2 = getRandomNumber(1, 100);
-  const randomOp = getRandomOperator();
-  const roundQuestion = `${randomInt1} ${randomOp} ${randomInt2}`;
-  const correctAnswer = String(calculate(randomInt1, randomInt2, randomOp));
+const generateRound = () => {
+  const randomNumber1 = getRandomNumber(1, 100);
+  const randomNumber2 = getRandomNumber(1, 100);
+  const randomOperator = getRandomOperator();
+  const roundQuestion = `${randomNumber1} ${randomOperator} ${randomNumber2}`;
+  const correctAnswer = String(calculate(randomNumber1, randomNumber2, randomOperator));
 
   return { roundQuestion, correctAnswer };
 };
 
-export default { gameQuestion, generateGame };
+export default { gameQuestion, generateRound };
