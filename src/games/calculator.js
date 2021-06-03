@@ -15,9 +15,8 @@ const calculate = (a, b, op) => {
 
 const getRandomOperator = () => {
   const operators = ['+', '-', '*'];
-  const randomElement = Math.floor(Math.random() * operators.length);
-
-  return operators[randomElement];
+  const randomIndex = getRandomNumber(0, operators.length - 1);
+  return operators[randomIndex];
 };
 
 const gameQuestion = 'What is the result of the expression?';

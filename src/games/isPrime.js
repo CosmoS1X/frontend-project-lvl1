@@ -18,7 +18,7 @@ const gameQuestion = 'Answer "yes" if given number is prime. Otherwise answer "n
 
 const generateRound = () => {
   const randomNumber = getRandomNumber(1, 100);
-  const roundQuestion = `${randomNumber}`;
+  const roundQuestion = String(randomNumber);
   const correctAnswer = isPrime(randomNumber) ? 'yes' : 'no';
 
   return { roundQuestion, correctAnswer };
