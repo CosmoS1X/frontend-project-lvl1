@@ -8,7 +8,7 @@ export default (game) => {
   console.log(`Hello, ${name}!`);
 
   if (!game) {
-    return;
+    return undefined;
   }
 
   console.log(game.gameQuestion);
@@ -20,18 +20,15 @@ export default (game) => {
 
     if (userAnswer === round.correctAnswer && roundNumber < maxRoundNumber) {
       console.log('Correct!');
-      iter(roundNumber + 1);
-      return;
+      return iter(roundNumber + 1);
     }
 
     if (userAnswer !== round.correctAnswer) {
-      console.log(`'${userAnswer}' is wrong answer :(. Correct answer was '${round.correctAnswer}'.`);
-      console.log(`Let's try again, ${name}!`);
-      return;
+      return console.log(`'${userAnswer}' is wrong answer :(. Correct answer was '${round.correctAnswer}'.\nLet's try again, ${name}!`);
     }
 
-    console.log(`Correct!\nCongratulations, ${name}!`);
+    return console.log(`Correct!\nCongratulations, ${name}!`);
   };
 
-  iter();
+  return iter();
 };
