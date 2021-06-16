@@ -11,6 +11,7 @@
 ## Installation
 
     git clone git@github.com:CosmoS1X/frontend-project-lvl1.git
+    cd frontend-project-lvl1
     make install
 
 ## Game descriptions and examples:
